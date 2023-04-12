@@ -1,0 +1,73 @@
+<template>
+
+   <div class="d-flex section">
+      <div class="d-flex section-header align-start font-bold">
+         <div>Оповещения о новых подборках</div>
+      </div>
+      <div class="section-content font-14px" >
+         <div class="section-content__title">
+            Выберите, куда будут приходить уведомления при появлении автомобилей, которые подходят под критерии вашей подборки
+         </div>
+         <div class="notification">
+            <div class="notification-title">Уведомления</div>
+            <div class="notification-fields">
+               <div class="notification-fields__item">
+                  <input type="radio" id="off" name="notification">
+                  <label for="off">Выкл</label>
+               </div>
+               <div class="notification-fields__item" >
+                  <input type="radio" id="push" name="notification" disabled>
+                  <div class="d-flex justify-between w-100">
+                     <label for="push">Push</label>
+                     <font-awesome-icon icon="fa-solid fa-circle-info" />
+                  </div>
+               </div>
+               <div class="notification-fields__item">
+                  <input type="radio" id="email" name="notification">
+                  <div class="d-flex justify-between w-100 align-center">
+                     <label for="email">Email</label>
+                     <input type="text" class="input" v-show="emailOn" :value="email" @input="email = $event.target.value">
+                     <font-awesome-icon icon="fa-solid fa-pencil" v-show="!emailOn" @click="emailOn = !emailOn"/>
+                  </div>
+               </div>
+               <div class="notification-fields__item">
+                  <input type="radio" id="telegram" name="notification">
+                  <div class="d-flex justify-between w-100 align-center">
+                     <label for="telegram"><a href="#" class="link">Telegram</a></label>
+                     <input type="text" class="input" v-show="telegramOn">
+                     <font-awesome-icon icon="fa-solid fa-pencil" v-show="!telegramOn"  @click="telegramOn = !telegramOn"/>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</template>
+
+<script>
+   export default {
+      data () {
+         return {
+            email: '',
+            emailOn: false,
+            telegramOn: false,
+         }
+      },
+   }
+</script>
+
+<style lang="sass" scoped>
+.notification
+   max-width: 290px
+   &-fields
+      display: flex
+      flex-direction: column
+      gap: 10px
+      
+      &__item
+         display: flex
+         gap: 5px
+         align-items: center
+         border-bottom: 1px solid black
+         padding: 10px 0
+</style>
