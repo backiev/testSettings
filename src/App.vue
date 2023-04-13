@@ -3,16 +3,6 @@
 
     <h2>Настройки</h2>
 
-    <Sip :sip="user.turbosip" />
-
-    <Account  :companyname="user.companyname" :login="user.login" :phone="user.phone" :fname="user.fname" :lname="user.lname"/>
-
-    <NotificationVue :notifytype="user.notifytypestring" :emailOld="user.email" @update="updateEmail"/>
-
-    <TransitionVue :redirecttarget="user.redirecttarget" />
-
-    <OtherVue :locklentaupdate="user.locklentaupdate" :colorlenta="user.colorlenta" :timezonestring="user.timezonestring"/>
-
     <div class="d-flex section">
       <div class="d-flex section-header align-start">
       </div>
@@ -25,7 +15,17 @@
         Сохранено
       </div>
     </transition>
-    
+
+    <OtherVue :locklentaupdate="user.locklentaupdate" :colorlenta="user.colorlenta" :timezonestring="user.timezonestring"/>
+
+    <TransitionVue :redirecttarget="user.redirecttarget" />
+
+    <NotificationVue :notifytype="user.notifytypestring" :emailOld="user.email" @update="updateEmail"/>
+
+    <Account  :companyname="user.companyname" :login="user.login" :phone="user.phone" :fname="user.fname" :lname="user.lname"/>
+
+    <Sip :sip="user.turbosip" />
+
 
   </main>
 </template>
@@ -50,6 +50,7 @@ export default {
     }
   },
   mounted () {
+    // Изначальый запрос данных для формы
     axios.get('https://api.av100.ru/v3/user/2011999', {
       headers: {
         'X-Api-Key': '8bcfb6e1-4fa8-4fae-872c-a435bbdbe8d9', 
@@ -61,9 +62,11 @@ export default {
       .catch(error => console.log(error));
   },
   methods: {
+    // Достаем значение из дочернего элемента (Notification) из инпута 
     updateEmail (value) {
       this.newEmail = value;
     },
+    // Обновляем данные, меняем только поле Email + на 1 секунду показываем модальное окно "Cохранено"
     handlerSubmit () {
       axios.put('https://api.av100.ru/v3/user/2011999', 
         {

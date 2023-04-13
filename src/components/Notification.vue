@@ -54,7 +54,7 @@
             email: this.emailOld,
             emailOn: false,
             telegramOn: false,
-            picked: this.notifytype
+            picked: this.notifytype,
          }
       },
       props: {
@@ -85,6 +85,6 @@
          display: flex
          gap: 5px
          align-items: center
-         border-bottom: 1px solid black
+         border-bottom: 1px solid #e1e1e3
          padding: 10px 0
 </style>

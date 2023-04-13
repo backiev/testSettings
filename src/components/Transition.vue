@@ -65,7 +65,7 @@
          display: flex
          gap: 5px
          align-items: center
-         border-bottom: 1px solid black
+         border-bottom: 1px solid #e1e1e3
          padding: 10px 0
 
 </style>
