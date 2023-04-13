@@ -7,27 +7,16 @@
          <div class="d-flex justify-between other-time">
             <div>Часовой пояс</div>
             <div>
-               <select name="select">
-               <!--Supplement an id here instead of using 'name'-->
-                  <option value="value1">Калиинград</option>
-                  <option value="value2" selected>Москва</option>
-                  <option value="value3">Самара</option>
-                  <option value="value4">Екатериннбурд</option>
-                  <option value="value5">Омск</option>
-                  <option value="value6">Красоярск</option>
-                  <option value="value7">Иркутск</option>
-                  <option value="value8">Якутстк</option>
-                  <option value="value9">Владивосток</option>
-                  <option value="value10">Магадан</option>
-                  <option value="value11">Камчатка</option>
-
-
+               <select v-model="selected">
+                  <option v-for="option in options" :value="option.value">
+                     {{ option.text }}
+                  </option>
                </select>
             </div>
          </div>
          <div class="other-fields">
             <div class="notification-fields__item" >
-               <input type="checkbox" id="auto" name="notification">
+               <input type="checkbox" id="auto" name="notification" v-model="lentaChecked">
                <div class="d-flex justify-between w-100">
                   <label for="auto">Автоматически переходить к новым обьявлениям</label>
                   <div class="tippy">
@@ -37,7 +26,7 @@
                </div>
             </div>
             <div class="notification-fields__item" >
-               <input type="checkbox" id="colors" name="notification">
+               <input type="checkbox" id="colors" name="notification" v-model="colorChecked">
                <div class="d-flex justify-between w-100">
                   <label for="colors">Включить цвета в ленте</label>
                   <div class="tippy">
@@ -53,7 +42,37 @@
 
 <script>
    export default {
-      
+      data () {
+         return {
+            colorChecked: this.colorlenta,
+            lentaChecked: !this.locklentaupdate,
+            selected: this.timezonestring,
+            options: [
+               { text: 'Калининград', value: 'Kaliningrad' },
+               { text: 'Москва', value: 'Moscow' },
+               { text: 'Самара', value: 'Samara' },
+               { text: 'Екатеринбург', value: 'Ekb' },
+               { text: 'Омск', value: 'Omsk' },
+               { text: 'Красноярск', value: 'Krasnoyarsk' },
+               { text: 'Иркутск', value: 'Irkutsk' },
+               { text: 'Якутск', value: 'Yakutsk' },
+               { text: 'Владивосток', value: 'Vladivostok' },
+               { text: 'Магадан', value: 'Magadan' },
+               { text: 'Камчатка', value: 'Kamchatka' },
+            ]
+         }
+      },
+      props: {
+         colorlenta: {
+            type: Boolean
+         },
+         locklentaupdate: {
+            type: Boolean
+         },
+         timezonestring: {
+            type: String
+         }
+      }
    }
 </script>
 

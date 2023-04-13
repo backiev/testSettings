@@ -23,12 +23,29 @@
       data() {
          return {
             fields: [
-               { id: 0,  title: 'Компания', textInput: 'Частное ллицо', subtitle: ''},
-               { id: 1,  title: 'Логин', textInput: '213123', subtitle: ''},
-               { id: 2,  title: 'Номер телефона', textInput: '213123', subtitle: ''},
-               { id: 3,  title: 'Имя', textInput: 'аноним', subtitle: ''},
-               { id: 4,  title: 'Фамилия', textInput: '', subtitle: '* Не обязательно'},
+               { id: 0,  title: 'Компания', textInput: this.companyname, subtitle: ''},
+               { id: 1,  title: 'Логин', textInput: this.login, subtitle: ''},
+               { id: 2,  title: 'Номер телефона', textInput: this.phone, subtitle: ''},
+               { id: 3,  title: 'Имя', textInput: this.fname, subtitle: ''},
+               { id: 4,  title: 'Фамилия', textInput: this.lname, subtitle: '* Не обязательно'},
             ]
+         }
+      },
+      props: {
+         companyname: {
+            type: String
+         },
+         login: {
+            type: String,
+         },
+         phone: {
+            type: String
+         },
+         fname: {
+            type: String
+         },
+         lname: {
+            type: String
          }
       }
    }

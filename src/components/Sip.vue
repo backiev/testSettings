@@ -3,7 +3,10 @@
    <div class="d-flex section">
       <div class="d-flex section-header align-start font-bold">
          <div>Звонок через SIP</div>
-         <input type="checkbox">
+         <input type="checkbox" v-model="handlerChecked"
+            true-value="on"
+            false-value="off"
+         >
       </div>
       <div class="section-content font-14px">
          <div class="section-content__title">
@@ -16,7 +19,16 @@
 
 <script>
    export default {
-      
+      props: {
+         sip: {
+            type: String
+         }
+      },
+      computed: {
+         handlerChecked () {
+            return this.sip;
+         }
+      }
    }
 </script>
 

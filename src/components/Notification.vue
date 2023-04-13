@@ -12,11 +12,11 @@
             <div class="notification-title">Уведомления</div>
             <div class="notification-fields">
                <div class="notification-fields__item">
-                  <input type="radio" id="off" name="notification">
+                  <input type="radio" id="off" name="notification" value="off" v-model="picked">
                   <label for="off">Выкл</label>
                </div>
                <div class="notification-fields__item" >
-                  <input type="radio" id="push" name="notification" disabled>
+                  <input type="radio" id="push" name="notification" value="Push" disabled>
                   <div class="d-flex justify-between w-100">
                      <label for="push">Push</label>
                      <div class="tippy">
@@ -26,15 +26,15 @@
                   </div>
                </div>
                <div class="notification-fields__item">
-                  <input type="radio" id="email" name="notification">
+                  <input type="radio" id="email" name="notification" value="Email" v-model="picked">
                   <div class="d-flex justify-between w-100 align-center">
                      <label for="email">Email</label>
-                     <input type="text" class="input" v-show="emailOn" :value="email" @input="email = $event.target.value">
+                     <input type="text" class="input" v-show="emailOn" v-model="email" @change="updateEmail">
                      <font-awesome-icon icon="fa-solid fa-pencil" class="cursor-pointer" v-show="!emailOn" @click="emailOn = !emailOn"/>
                   </div>
                </div>
                <div class="notification-fields__item">
-                  <input type="radio" id="telegram" name="notification">
+                  <input type="radio" id="telegram" name="notification" value="Telegram" v-model="picked">
                   <div class="d-flex justify-between w-100 align-center">
                      <label for="telegram"><a href="#" class="link">Telegram</a></label>
                      <input type="text" class="input" v-show="telegramOn">
@@ -54,8 +54,19 @@
             email: '',
             emailOn: false,
             telegramOn: false,
+            picked: this.notifytype
          }
       },
+      props: {
+         notifytype: {
+            type: String
+         }
+      },
+      methods: {
+         updateEmail() {
+            this.email.trim() ? this.$emit('update', this.email) : ' ';
+         }
+      }
    }
 </script>
 

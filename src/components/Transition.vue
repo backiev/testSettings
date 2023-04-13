@@ -11,19 +11,19 @@
          <div class="notification">
             <div class="notification-fields">
                <div class="notification-fields__item" >
-                  <input type="radio" id="current" name="card">
+                  <input type="radio" id="current" name="card" value="0" v-model="picked">
                   <div class="d-flex justify-between w-100">
                      <label for="current">В карточку в текущем окне</label>
                   </div>
                </div>
                <div class="notification-fields__item">
-                  <input type="radio" id="another" name="card">
+                  <input type="radio" id="another" name="card" value="1" v-model="picked">
                   <div class="d-flex justify-between w-100 align-center">
                      <label for="another">В карточку в отдельном окне</label>
                   </div>
                </div>
                <div class="notification-fields__item">
-                  <input type="radio" id="origin" name="card">
+                  <input type="radio" id="origin" name="card" value="2" v-model="picked">
                   <div class="d-flex justify-between w-100 align-center">
                      <label for="origin">На источнник</label>
                      <div class="tippy">
@@ -40,7 +40,16 @@
 
 <script>
    export default {
-      
+      data () {
+         return {
+            picked: this.redirecttarget,
+         }
+      },
+      props: {
+         redirecttarget: {
+            type: Number
+         }
+      }
    }
 </script>
 
