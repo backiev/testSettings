@@ -10,7 +10,7 @@
       <div class="d-flex section-header align-start">
       </div>
       <div class="section-content w-100">
-        <button class="w-100">Сохранить</button>
+        <button class="w-100 btn">Сохранить</button>
       </div>
     </div>
     
@@ -71,12 +71,45 @@ label, input[type=radio], input[type=checkbox]
       color: #686869
       margin-bottom: 16px
       font-size: 14px
+.btn
+  background-color: #26a763
+  color: white
+  border: none
+  border-radius: 2px
+  padding: 13px 20px
+  cursor: pointer
 
 .input
-  border: 0.1rem solid #e1e1e3
-  border-radius: 0.3rem
+  border: 1px solid #e1e1e3
+  border-radius: 3px
+  line-height: 11px
+  box-sizing: border-box
   color: #222
-  outline: none
   transition: all .3s
-  padding: 0.8rem 1rem
+  padding: 8px 10px
+  outline-color: green
+  font-size: 14px
+.cursor-pointer
+  cursor: pointer
+.tippy
+   position: relative
+   max-width: 350px
+   bottom: 0px
+   text-align: center
+.tippy:hover
+   .tippy-content
+      display: block
+.tippy-content
+   display: none
+   width: 300px
+   position: absolute
+   bottom: -20px
+   left: -150px
+   right: 0
+   font-size: 12px
+   line-height: 11px
+   font-weight: 600
+   background-color: #2dc574
+   padding: 5px 10px
+   border-radius: 2px
 </style>

@@ -27,7 +27,7 @@
                { id: 1,  title: 'Логин', textInput: '213123', subtitle: ''},
                { id: 2,  title: 'Номер телефона', textInput: '213123', subtitle: ''},
                { id: 3,  title: 'Имя', textInput: 'аноним', subtitle: ''},
-               { id: 4,  title: 'Фамилия', textInput: '', subtitle: 'Не обязательно'},
+               { id: 4,  title: 'Фамилия', textInput: '', subtitle: '* Не обязательно'},
             ]
          }
       }
@@ -50,4 +50,6 @@
 
       &__subtitle
          margin-top: 4px
+         color: #a3a3a3
+         font-size: 12px
 </style>

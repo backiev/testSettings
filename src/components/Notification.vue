@@ -19,7 +19,10 @@
                   <input type="radio" id="push" name="notification" disabled>
                   <div class="d-flex justify-between w-100">
                      <label for="push">Push</label>
-                     <font-awesome-icon icon="fa-solid fa-circle-info" />
+                     <div class="tippy">
+                        <font-awesome-icon icon="fa-solid fa-circle-info" class="cursor-pointer" />
+                        <div class="tippy-content">Можно установить только в приложении</div>
+                     </div>
                   </div>
                </div>
                <div class="notification-fields__item">
@@ -27,7 +30,7 @@
                   <div class="d-flex justify-between w-100 align-center">
                      <label for="email">Email</label>
                      <input type="text" class="input" v-show="emailOn" :value="email" @input="email = $event.target.value">
-                     <font-awesome-icon icon="fa-solid fa-pencil" v-show="!emailOn" @click="emailOn = !emailOn"/>
+                     <font-awesome-icon icon="fa-solid fa-pencil" class="cursor-pointer" v-show="!emailOn" @click="emailOn = !emailOn"/>
                   </div>
                </div>
                <div class="notification-fields__item">
@@ -35,7 +38,7 @@
                   <div class="d-flex justify-between w-100 align-center">
                      <label for="telegram"><a href="#" class="link">Telegram</a></label>
                      <input type="text" class="input" v-show="telegramOn">
-                     <font-awesome-icon icon="fa-solid fa-pencil" v-show="!telegramOn"  @click="telegramOn = !telegramOn"/>
+                     <font-awesome-icon icon="fa-solid fa-pencil" class="cursor-pointer" v-show="!telegramOn"  @click="telegramOn = !telegramOn"/>
                   </div>
                </div>
             </div>

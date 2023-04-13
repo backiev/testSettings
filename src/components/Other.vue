@@ -4,7 +4,7 @@
          <div>Прочие настройки</div>
       </div>
       <div class="section-content other font-14px" >
-         <div class="d-flex other-time">
+         <div class="d-flex justify-between other-time">
             <div>Часовой пояс</div>
             <div>
                <select name="select">
@@ -30,14 +30,20 @@
                <input type="checkbox" id="auto" name="notification">
                <div class="d-flex justify-between w-100">
                   <label for="auto">Автоматически переходить к новым обьявлениям</label>
-                  <font-awesome-icon icon="fa-solid fa-circle-info" />
+                  <div class="tippy">
+                     <font-awesome-icon icon="fa-solid fa-circle-info" class="cursor-pointer" />
+                     <div class="tippy-content">Лента будет автоматически обновляться 1 раз в 3 секунды</div>
+                  </div>
                </div>
             </div>
             <div class="notification-fields__item" >
                <input type="checkbox" id="colors" name="notification">
                <div class="d-flex justify-between w-100">
                   <label for="colors">Включить цвета в ленте</label>
-                  <font-awesome-icon icon="fa-solid fa-circle-info" />
+                  <div class="tippy">
+                        <font-awesome-icon icon="fa-solid fa-circle-info" class="cursor-pointer" />
+                        <div class="tippy-content">Включение зеленого/желтого цвета</div>
+                     </div>
                </div>
             </div>
          </div>
@@ -61,4 +67,6 @@
    align-items: center
    // border-bottom: 1px solid black
    padding: 10px 0
+   input 
+      accent-color: green
 </style>

@@ -26,7 +26,10 @@
                   <input type="radio" id="origin" name="card">
                   <div class="d-flex justify-between w-100 align-center">
                      <label for="origin">На источнник</label>
-                     <font-awesome-icon icon="fa-solid fa-circle-info" />
+                     <div class="tippy">
+                        <font-awesome-icon icon="fa-solid fa-circle-info" class="cursor-pointer" />
+                        <div class="tippy-content">Прямой переход в объявление на источнике</div>
+                     </div>
                   </div>
                </div>
             </div>
@@ -55,4 +58,5 @@
          align-items: center
          border-bottom: 1px solid black
          padding: 10px 0
+
 </style>
