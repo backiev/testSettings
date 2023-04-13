@@ -29,7 +29,7 @@
                   <input type="radio" id="email" name="notification" value="Email" v-model="picked">
                   <div class="d-flex justify-between w-100 align-center">
                      <label for="email">Email</label>
-                     <input type="text" class="input" v-show="emailOn" v-model="email" @change="updateEmail">
+                     <input type="text" class="input" v-show="emailOn" v-model="email" v-on:input="updateEmail">
                      <font-awesome-icon icon="fa-solid fa-pencil" class="cursor-pointer" v-show="!emailOn" @click="emailOn = !emailOn"/>
                   </div>
                </div>
@@ -51,7 +51,7 @@
    export default {
       data () {
          return {
-            email: '',
+            email: this.emailOld,
             emailOn: false,
             telegramOn: false,
             picked: this.notifytype
@@ -59,6 +59,9 @@
       },
       props: {
          notifytype: {
+            type: String
+         },
+         emailOld: {
             type: String
          }
       },
